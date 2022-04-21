@@ -9,7 +9,11 @@ void main() {
   runApp(const MyApp());
 }
 
-mixin canRun {
+abstract class Animal {
+  const Animal();
+}
+
+mixin canRun on Animal{
   int get speed;
 
   void run() {
@@ -17,9 +21,13 @@ mixin canRun {
   }
 }
 
-class Cat with canRun {
+class Cat extends Animal with canRun {
   @override
   int speed = 10;
+}
+
+class Dog with canRun{
+  
 }
 
 void testIt() {
